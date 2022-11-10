@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:55:32 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/10 18:03:01 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:52:19 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_xtraspace(char *fed);
 char	*ft_read(int fd, char *fed);
 char	*get_next_line(int fd);
+char	*ft_strdup(const char *s1);
 
 #endif

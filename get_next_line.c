@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 15:34:30 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/10 18:23:57 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:54:31 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,13 @@ char	*get_next_line(int fd)
 {
 	int			cont;
 	char		*line;
-	static char	*fed = NULL;
+	static char	*fed;
 
+	
 	cont = 0;
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (!fed)
+		fed = ft_strdup("");
+	if (fed < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	fed = ft_read(fd, fed);
 	if (!fed)

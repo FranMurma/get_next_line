@@ -6,7 +6,7 @@
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 15:06:49 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/10 17:59:49 by frmurcia         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:48:19 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,26 @@ char	*ft_strchr(const char *s, int c)
 	if (s[cont] == (char)c)
 		return ((char *)(s + cont));
 	return (NULL);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*str_new;
+	int		cont;
+	int		len;
+
+	len = 0;
+	while (s1[len])
+		len++;
+	str_new = malloc(sizeof(char) * (len + 1));
+	if (!str_new)
+		return (NULL);
+	cont = 0;
+	while (s1[cont])
+	{
+		str_new[cont] = s1[cont];
+		cont++;
+	}
+	str_new[cont] = '\0';
+	return (str_new);
 }
