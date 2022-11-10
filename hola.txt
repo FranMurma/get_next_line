@@ -1,0 +1,15 @@
+En la función read:
+
+read(fd, temp, BUFFER_SIZE)
+
+fd = file descriptor
+temp = cadena en la que guardar lo que se recibe
+BUFFER_SIZE = numero de caracteres que leer
+Retorna numero de bytes leidos
+
+
+En la función ft_read
+
+char *ft_read(int fd, char *ptr)
+Entra el file descriptor y un char *ptr en el que se guarda lo que se recibe. Devuelve un char *
+bytes -> es el numero de bytes leídos que da al igualarlo con la función read (en la que se recibe el file descriptor, con su temp y buffer_size.
