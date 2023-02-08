@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frmurcia <frmurcia@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 15:34:30 by frmurcia          #+#    #+#             */
-/*   Updated: 2022/11/12 18:48:15 by frmurcia         ###   ########.fr       */
+/*   Created: 2022/11/12 17:57:36 by frmurcia          #+#    #+#             */
+/*   Updated: 2022/11/12 18:02:51 by frmurcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_xtraspace(char *fed)
 {
@@ -68,23 +68,23 @@ char	*get_next_line(int fd)
 {
 	int			cont;
 	char		*line;
-	static char	*fed;
+	static char	*fed[1024];
 
 	cont = 0;
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
 		return (NULL);
-	if (!fed)
-		fed = ft_strdup("");
-	fed = ft_read(fd, fed);
-	if (!fed)
+	if (!fed[fd])
+		fed[fd] = ft_strdup("");
+	fed[fd] = ft_read(fd, fed[fd]);
+	if (!fed[fd])
 	{
-		free(fed);
+		free(fed[fd]);
 		return (NULL);
 	}
-	while (fed[cont] != '\n' && fed[cont])
+	while (fed[fd][cont] != '\n' && fed[fd][cont])
 		cont++;
-	line = ft_substr(fed, 0, cont + 1);
-	fed = ft_xtraspace(fed);
+	line = ft_substr(fed[fd], 0, cont + 1);
+	fed[fd] = ft_xtraspace(fed[fd]);
 	if (!line || !line[0])
 	{
 		free(line);
